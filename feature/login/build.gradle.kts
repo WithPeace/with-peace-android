@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "com.withpeace.login"
+    namespace = "com.withpeace.withpeace.feature.login"
 }
 
 dependencies {

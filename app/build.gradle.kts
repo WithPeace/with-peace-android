@@ -19,6 +19,6 @@ android {
 }
 
 dependencies{
-    implementation(project(":google-login"))
+    implementation(project(":feature:login"))
 }
 

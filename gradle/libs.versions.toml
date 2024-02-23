@@ -57,6 +57,8 @@ multidex = "2.0.1"
 
 google-login = "1.1.0"
 
+credential = "1.2.0"
+
 [libraries]
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
 android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugarJdkLibs" }
@@ -131,6 +133,9 @@ room-testing = { group = "androidx.room", name = "room-testing", version.ref = "
 oss-licenses = { group = "com.google.android.gms", name = "play-services-oss-licenses", version.ref = "ossLicenses" }
 
 mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+
+androidx-credentials = { group = "androidx.credentials", name = "credentials", version.ref = "credential" }
+androidx-credentials-play-service = { group = "androidx.credentials", name = "credentials-play-services-auth", version.ref = "credential" }
 
 multidex = { group = "androidx.multidex", name = "multidex", version.ref = "multidex" }
 
