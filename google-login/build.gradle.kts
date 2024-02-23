@@ -36,4 +36,5 @@ dependencies {
     implementation(libs.google.login)
     implementation(libs.multidex)
     implementation(libs.androidx.credentials)
+    implementation(libs.androidx.credentials.play.service)
 }

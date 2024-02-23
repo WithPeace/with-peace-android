@@ -6,16 +6,14 @@ import androidx.credentials.GetCredentialRequest
 import androidx.credentials.GetCredentialResponse
 import com.google.android.libraries.identity.googleid.GetGoogleIdOption
 import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential
-import com.google.android.libraries.identity.googleid.GoogleIdTokenParsingException
 import com.withpeace.google_login.BuildConfig
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 class GoogleLogin {
-
-
     private val googleIdOption: GetGoogleIdOption = GetGoogleIdOption.Builder()
-        .setFilterByAuthorizedAccounts(true)
+        .setFilterByAuthorizedAccounts(false)
+        .setAutoSelectEnabled(true)
         .setServerClientId(BuildConfig.GOOGLE_CLIENT_ID)
         .build()
 
@@ -38,22 +36,21 @@ class GoogleLogin {
                     request
                 )
                 handleSignIn(result, onSuccess)
+            }.onFailure {
+                Log.d("test", it.stackTraceToString())
             }
         }
 
     }
 
     private fun handleSignIn(result: GetCredentialResponse, onSuccess: (String) -> Unit) {
-        // Handle the successfully returned credential.
         val credential = result.credential
-
         if (credential is CustomCredential && credential.type == GoogleIdTokenCredential.TYPE_GOOGLE_ID_TOKEN_CREDENTIAL) {
             try {
                 val googleIdTokenCredential = GoogleIdTokenCredential
                     .createFrom(credential.data)
                 onSuccess(googleIdTokenCredential.idToken)
             } catch (e: Exception) {
-                Log.d("test",e.stackTraceToString())
             }
         } else {
             Log.d("test","test3")
