@@ -109,7 +109,7 @@ private fun NickNameTextField(
             value = nickname, onValueChange = onNickNameChanged,
             modifier = modifier.fillMaxWidth(),
             enabled = true,
-            textStyle = WithpeaceTheme.typography.body,
+            textStyle = WithpeaceTheme.typography.body.copy(textAlign = TextAlign.Center),
             singleLine = true,
             maxLines = 1,
         ) {
