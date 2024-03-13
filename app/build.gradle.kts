@@ -40,6 +40,7 @@ android {
 dependencies {
     implementation(libs.androidx.core.splashscreen)
     implementation(project(":feature:login"))
+    implementation(project(":feature:signup"))
     implementation(project(":feature:home"))
     implementation(project(":feature:postlist"))
     implementation(project(":feature:mypage"))

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="create_nickname">사용할 닉네임을 정해주세요!</string>
+    <string name="nickname_policy">닉네임은 2~10자의 한글, 영문만 가능합니다.</string>
+    <string name="app_logo_content_description">app logo</string>
+    <string name="nickname_hint">닉네임을 입력하세요</string>
+</resources>
