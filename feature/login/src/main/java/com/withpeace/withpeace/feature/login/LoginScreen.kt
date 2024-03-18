@@ -39,6 +39,8 @@ import kotlinx.coroutines.launch
 fun LoginRoute(
     viewModel: LoginViewModel = hiltViewModel(),
     onShowSnackBar: (message: String) -> Unit,
+    onSignUpNeeded: () -> Unit,
+    onLoginSuccess: () -> Unit,
 ) {
     LoginScreen(
         onGoogleLogin = viewModel::googleLogin,
@@ -55,11 +57,16 @@ fun LoginRoute(
                     onShowSnackBar("회원가입에 실패하였습니다!")
                 }
 
-                LoginUiEvent.LoginFail -> {
+                is LoginUiEvent.SignUpNeeded -> {
+                    onSignUpNeeded()
+                }
+
+                is LoginUiEvent.LoginFail -> {
                     onShowSnackBar("서버와의 로그인 인증에 실패하였습니다!")
                 }
-                LoginUiEvent.LoginSuccess -> {
-                    onShowSnackBar("로그인에 성공하였습니다!")
+
+                is LoginUiEvent.LoginSuccess -> {
+                    onLoginSuccess()
                 }
             }
         }
@@ -137,10 +144,12 @@ fun LoginScreen(
                     contentDescription = stringResource(R.string.image_google_logo),
                 )
                 Text(
-                    modifier = Modifier.align(Alignment.Center).padding(vertical = 18.dp),
+                    modifier = Modifier
+                        .align(Alignment.Center)
+                        .padding(vertical = 18.dp),
                     color = WithpeaceTheme.colors.SystemBlack,
                     style = WithpeaceTheme.typography.notoSans.merge(
-                        TextStyle(platformStyle = PlatformTextStyle(includeFontPadding = false))
+                        TextStyle(platformStyle = PlatformTextStyle(includeFontPadding = false)),
                     ),
                     text = stringResource(R.string.login_to_google),
                 )

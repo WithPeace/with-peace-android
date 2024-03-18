@@ -3,7 +3,9 @@ package com.withpeace.withpeace.core.data.repository
 import com.skydoves.sandwich.message
 import com.skydoves.sandwich.suspendMapSuccess
 import com.skydoves.sandwich.suspendOnFailure
+import com.withpeace.withpeace.core.data.mapper.roleToDomain
 import com.withpeace.withpeace.core.datastore.dataStore.TokenPreferenceDataSource
+import com.withpeace.withpeace.core.domain.model.role.Role
 import com.withpeace.withpeace.core.domain.repository.TokenRepository
 import com.withpeace.withpeace.core.network.di.request.SignUpRequest
 import com.withpeace.withpeace.core.network.di.service.AuthService
@@ -43,12 +45,12 @@ class DefaultTokenRepository @Inject constructor(
     override fun getTokenByGoogle(
         idToken: String,
         onError: (String) -> Unit,
-    ): Flow<Unit> = flow {
+    ): Flow<Role> = flow {
         authService.googleLogin(AUTHORIZATION_FORMAT.format(idToken)).suspendMapSuccess {
             val data = this.data
             tokenPreferenceDataSource.updateAccessToken(data.tokenResponse.accessToken)
             tokenPreferenceDataSource.updateRefreshToken(data.tokenResponse.refreshToken)
-            emit(Unit)
+            emit(data.role.roleToDomain())
         }.suspendOnFailure { onError(message()) }
     }.flowOn(Dispatchers.IO)
 

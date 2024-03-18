@@ -14,8 +14,14 @@ fun NavController.navigateLogin(navOptions: NavOptions? = null) {
 
 fun NavGraphBuilder.loginNavGraph(
     onShowSnackBar: (message: String) -> Unit,
+    onSignUpNeeded: () -> Unit,
+    onLoginSuccess: () -> Unit,
 ) {
     composable(route = LOGIN_ROUTE) {
-        LoginRoute(onShowSnackBar = onShowSnackBar)
+        LoginRoute(
+            onShowSnackBar = onShowSnackBar,
+            onSignUpNeeded = onSignUpNeeded,
+            onLoginSuccess = onLoginSuccess,
+        )
     }
 }

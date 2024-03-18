@@ -1,5 +1,6 @@
 package com.withpeace.withpeace.core.domain.repository
 
+import com.withpeace.withpeace.core.domain.model.role.Role
 import kotlinx.coroutines.flow.Flow
 
 interface TokenRepository {
@@ -15,5 +16,5 @@ interface TokenRepository {
     fun getTokenByGoogle(
         idToken: String,
         onError: (String) -> Unit,
-    ): Flow<Unit>
+    ): Flow<Role>
 }

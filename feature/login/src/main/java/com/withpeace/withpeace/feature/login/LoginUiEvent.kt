@@ -5,6 +5,8 @@ sealed interface LoginUiEvent {
 
     data object LoginFail : LoginUiEvent
 
+    data object SignUpNeeded : LoginUiEvent
+
     data object SignUpSuccess : LoginUiEvent
 
     data class SignUpFail(val message: String?) : LoginUiEvent

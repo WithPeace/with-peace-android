@@ -2,6 +2,7 @@ package com.withpeace.withpeace.feature.login
 
 import app.cash.turbine.test
 import com.google.common.truth.Truth.assertThat
+import com.withpeace.withpeace.core.domain.model.role.Role
 import com.withpeace.withpeace.core.domain.usecase.GoogleLoginUseCase
 import com.withpeace.withpeace.core.domain.usecase.SignUpUseCase
 import com.withpeace.withpeace.core.testing.MainDispatcherRule
@@ -27,7 +28,7 @@ class LoginViewModelTest {
     }
 
     @Test
-    fun `구글 로그인에 성공하면 로그인 성공 이벤트를 발생한다`() = runTest {
+    fun `구글 로그인에 성공하고 권한이 유저이면 로그인 성공 이벤트를 발생한다`() = runTest {
         // given
         coEvery {
             googleLoginUseCase(
@@ -35,7 +36,7 @@ class LoginViewModelTest {
                 onError = any(),
             )
         } returns flow {
-            emit(Unit)
+            emit(Role.USER)
         }
         viewModel = initialize()
 
@@ -44,6 +45,48 @@ class LoginViewModelTest {
             viewModel.googleLogin("test")
             val actual = awaitItem()
             assertThat(actual).isEqualTo(LoginUiEvent.LoginSuccess)
+        }
+    }
+
+    @Test
+    fun `구글 로그인에 성공하고 권한이 게스트이면 회원가입 필요 이벤트를 발생한다`() = runTest {
+        // given
+        coEvery {
+            googleLoginUseCase(
+                "test",
+                onError = any(),
+            )
+        } returns flow {
+            emit(Role.GUEST)
+        }
+        viewModel = initialize()
+
+        // when & then
+        viewModel.loginUiEvent.test {
+            viewModel.googleLogin("test")
+            val actual = awaitItem()
+            assertThat(actual).isEqualTo(LoginUiEvent.SignUpNeeded)
+        }
+    }
+
+    @Test
+    fun `구글 로그인에 성공하고 권한이 알 수 없으면 로그인 실패 이벤트를 발생한다`() = runTest {
+        // given
+        coEvery {
+            googleLoginUseCase(
+                "test",
+                onError = any(),
+            )
+        } returns flow {
+            emit(Role.UNKNOWN)
+        }
+        viewModel = initialize()
+
+        // when & then
+        viewModel.loginUiEvent.test {
+            viewModel.googleLogin("test")
+            val actual = awaitItem()
+            assertThat(actual).isEqualTo(LoginUiEvent.LoginFail)
         }
     }
 
