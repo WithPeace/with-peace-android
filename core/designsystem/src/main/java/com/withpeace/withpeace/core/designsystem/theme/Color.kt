@@ -21,6 +21,7 @@ val systemWhite = Color.White
 val systemGray1 = Color(0xFF3D3D3D)
 val systemGray2 = Color(0xFFA7A7A7)
 val systemGray3 = Color(0xFFECECEF)
+val systemGray4 = Color(0xFF696969)
 val systemError = Color(0xFFF0474B)
 val systemSuccess = Color(0xFF3BD569)
 
@@ -36,6 +37,7 @@ data class WithPeaceColor(
     val SystemGray2: Color = systemGray2,
     val SystemGray3: Color = systemGray3,
     val SystemError: Color = systemError,
+    val SystemGray4: Color = systemGray4,
     val SystemSuccess: Color = systemSuccess,
 )
 

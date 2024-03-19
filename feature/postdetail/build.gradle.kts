@@ -6,4 +6,7 @@ android {
     namespace = "com.withpeace.withpeace.feature.postdetail"
 }
 
-dependencies {}
+dependencies {
+    implementation(libs.skydoves.landscapist.bom)
+    implementation(libs.skydoves.landscapist.glide)
+}

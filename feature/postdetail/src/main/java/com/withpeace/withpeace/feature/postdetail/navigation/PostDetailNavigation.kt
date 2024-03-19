@@ -20,6 +20,7 @@ fun NavController.navigateToPostDetail(
 
 fun NavGraphBuilder.postDetailNavGraph(
     onShowSnackBar: (String) -> Unit,
+    onClickBackButton: () -> Unit,
 ) {
     composable(
         route = POST_DETAIL_ROUTE_WITH_ARGUMENT,
@@ -27,6 +28,6 @@ fun NavGraphBuilder.postDetailNavGraph(
             navArgument(POST_DETAIL_ID_ARGUMENT) { type = NavType.LongType },
         ),
     ) {
-        PostDetailRoute(onShowSnackBar = onShowSnackBar)
+        PostDetailRoute(onShowSnackBar = onShowSnackBar, onClickBackButton = onClickBackButton)
     }
 }
