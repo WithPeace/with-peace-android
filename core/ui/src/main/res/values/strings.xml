@@ -10,5 +10,6 @@
     <string name="minute_format">%1$d분 전</string>
     <string name="hour_format">%1$d시간 전</string>
     <string name="day_format">%1$d일 전</string>
+    <string name="years_format">%1$d년 전</string>
 
 </resources>

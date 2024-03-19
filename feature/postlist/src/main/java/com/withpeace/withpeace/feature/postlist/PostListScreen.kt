@@ -28,6 +28,7 @@ import com.skydoves.landscapist.glide.GlideImage
 import com.withpeace.withpeace.core.designsystem.theme.PretendardFont
 import com.withpeace.withpeace.core.designsystem.theme.WithpeaceTheme
 import com.withpeace.withpeace.core.designsystem.ui.WithpeaceCard
+import com.withpeace.withpeace.core.domain.model.date.Date
 import com.withpeace.withpeace.core.domain.model.post.Post
 import com.withpeace.withpeace.core.domain.model.post.PostTopic
 import com.withpeace.withpeace.core.ui.R
@@ -144,7 +145,7 @@ private fun PostListScreenPreview() {
                     title = "periculis",
                     content = "pellentesq\nuehaha",
                     postTopic = PostTopic.INFORMATION,
-                    createDate = LocalDateTime.now(),
+                    createDate = Date(LocalDateTime.now()),
                     postImageUrl = "https://duckduckgo.com/?q=verterem",
                 )
             },
