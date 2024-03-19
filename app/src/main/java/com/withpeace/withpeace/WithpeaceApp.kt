@@ -46,11 +46,11 @@ fun WithpeaceApp(
                 }
             }
         },
-        modifier = Modifier.fillMaxSize().safeDrawingPadding(),
+        modifier = Modifier.fillMaxSize(),
         snackbarHost = { SnackbarHost(snackBarHostState) },
     ) { innerPadding ->
         WithpeaceNavHost(
-            modifier = Modifier.padding(innerPadding),
+            modifier = Modifier.padding(bottom = innerPadding.calculateBottomPadding()),
             onShowSnackBar = ::showSnackBar,
             startDestination = startDestination,
             navController = navController,

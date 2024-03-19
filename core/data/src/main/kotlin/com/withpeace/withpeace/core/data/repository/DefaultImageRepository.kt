@@ -1,6 +1,6 @@
 package com.withpeace.withpeace.core.data.repository
 
-import com.withpeace.withpeace.core.domain.model.ImageFolder
+import com.withpeace.withpeace.core.domain.model.image.ImageFolder
 import com.withpeace.withpeace.core.domain.repository.ImageRepository
 import com.withpeace.withpeace.core.imagestorage.ImageDataSource
 import kotlinx.coroutines.Dispatchers
