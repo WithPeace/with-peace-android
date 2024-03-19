@@ -12,6 +12,7 @@ androidxActivity = "1.8.2"
 coreSplashscreen = "1.0.1"
 hilt = "2.48"
 hiltNavigationCompose = "1.1.0"
+androidxConstraintlayout = "1.0.1"
 
 lifecycleRuntimeKtx = "2.7.0"
 okhttp = "4.11.0"
@@ -53,6 +54,7 @@ glanceExperimentalTools = "0.2.2"
 junit = "1.1.5"
 material = "1.11.0"
 material3Android = "1.2.0"
+material3 = "1.2.1"
 multidex = "2.0.1"
 
 google-login = "1.1.0"
@@ -79,12 +81,13 @@ androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", versi
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCore" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidxAppCompat" }
 
+androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout-compose", version.ref = "androidxConstraintlayout" }
 androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 androidx-lifecycle-runtimeCompose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidxLifecycle" }
 androidx-lifecycle-viewModelCompose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "androidxLifecycle" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidxActivity" }
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "androidxComposeBom" }
-androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3",version.ref = "material3"  }
 androidx-compose-icon = { group = "androidx.compose.material", name = "material-icons-extended", version.ref = "composeIconExtended" }
 androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
 androidx-compose-ui-test = { group = "androidx.compose.ui", name = "ui-test-junit4" }

@@ -68,6 +68,7 @@ import com.withpeace.withpeace.core.domain.model.WithPeaceError
 import com.withpeace.withpeace.core.domain.model.post.PostTopic
 import com.withpeace.withpeace.core.domain.model.post.RegisterPost
 import com.withpeace.withpeace.core.permission.ImagePermissionHelper
+import com.withpeace.withpeace.core.ui.PostTopicUiState
 import com.withpeace.withpeace.feature.registerpost.R.drawable
 import com.withpeace.withpeace.feature.registerpost.R.string
 import kotlinx.coroutines.launch
@@ -219,7 +220,7 @@ fun PostImageList(
                         .size(110.dp)
                         .padding(top = 12.dp),
                     imageModel = { imageUrl },
-                    previewPlaceholder = drawable.ic_cate_free,
+                    previewPlaceholder = drawable.ic_camera,
                 )
                 Image(
                     modifier = Modifier
@@ -290,7 +291,7 @@ fun RegisterPostTopic(
                    stringResource(id = string.topic_hint)
                 } else {
                     stringResource(
-                        id = PosterTopicUiState.create(
+                        id = PostTopicUiState.create(
                             topic,
                         ).textResId,
                     )
@@ -347,23 +348,41 @@ fun TopicBottomSheetContent(
             style = WithpeaceTheme.typography.title1,
         )
         LazyVerticalGrid(
-            contentPadding = PaddingValues(top = 32.dp, bottom = 16.dp),
+            contentPadding = PaddingValues(top = 40.dp, bottom = 40.dp, start = 24.dp, end = 24.dp),
             columns = GridCells.Fixed(3),
+            horizontalArrangement = Arrangement.spacedBy(17.dp),
+            verticalArrangement = Arrangement.spacedBy(24.dp),
         ) {
             items(
-                items = PosterTopicUiState.entries,
+                items = PostTopicUiState.entries,
             ) { topicUiState ->
-                Icon(
-                    modifier = Modifier
-                        .clickable {
-                            onClickTopic(topicUiState.topic)
-                        }
-                        .padding(bottom = 24.dp),
-                    painter = painterResource(id = topicUiState.iconResId),
-                    contentDescription = topicUiState.iconResId.toString(),
-                    tint = if (currentTopic == topicUiState.topic) WithpeaceTheme.colors.MainPink
-                    else WithpeaceTheme.colors.SystemGray2,
-                )
+                val color = if (currentTopic == topicUiState.topic) {
+                    WithpeaceTheme.colors.MainPink
+                } else {
+                    WithpeaceTheme.colors.SystemGray2
+                }
+                Column(
+                    modifier = Modifier.size(93.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                ) {
+                    Icon(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .clickable {
+                                onClickTopic(topicUiState.topic)
+                            }
+                            .padding(vertical = 12.dp, horizontal = 24.dp)
+                            .weight(1f),
+                        painter = painterResource(topicUiState.iconResId),
+                        contentDescription = topicUiState.iconResId.toString(),
+                        tint = color,
+                    )
+                    Text(
+                        text = stringResource(id = topicUiState.textResId),
+                        style = WithpeaceTheme.typography.caption,
+                        color = color,
+                    )
+                }
             }
         }
     }

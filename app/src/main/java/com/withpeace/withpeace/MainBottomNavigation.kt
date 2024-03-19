@@ -19,8 +19,8 @@ import com.withpeace.withpeace.feature.home.navigation.HOME_ROUTE
 import com.withpeace.withpeace.feature.home.navigation.navigateHome
 import com.withpeace.withpeace.feature.mypage.navigation.MY_PAGE_ROUTE
 import com.withpeace.withpeace.feature.mypage.navigation.navigateMyPage
-import com.withpeace.withpeace.feature.post.navigation.POST_ROUTE
-import com.withpeace.withpeace.feature.post.navigation.navigatePost
+import com.withpeace.withpeace.feature.postlist.navigation.POST_LIST_ROUTE
+import com.withpeace.withpeace.feature.postlist.navigation.navigateToPostList
 
 @Composable
 fun MainBottomBar(
@@ -68,7 +68,7 @@ private fun NavController.navigateToTabScreen(bottomTab: BottomTab) {
 
     when (bottomTab) {
         BottomTab.HOME -> navigateHome(tabNavOptions)
-        BottomTab.POST -> navigatePost(tabNavOptions)
+        BottomTab.POST -> navigateToPostList(tabNavOptions)
         BottomTab.MY_PAGE -> navigateMyPage(tabNavOptions)
     }
 }
@@ -89,7 +89,7 @@ enum class BottomTab(
         iconUnSelectedResId = R.drawable.ic_bottom_post,
         iconSelectedResId = R.drawable.ic_bottom_post_select,
         contentDescription = R.string.post,
-        POST_ROUTE,
+        POST_LIST_ROUTE,
     ),
     MY_PAGE(
         iconUnSelectedResId = R.drawable.ic_bottom_my_page,

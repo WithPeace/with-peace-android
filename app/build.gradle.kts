@@ -41,7 +41,7 @@ dependencies {
     implementation(libs.androidx.core.splashscreen)
     implementation(project(":feature:login"))
     implementation(project(":feature:home"))
-    implementation(project(":feature:post"))
+    implementation(project(":feature:postlist"))
     implementation(project(":feature:mypage"))
     implementation(project(":feature:registerpost"))
     implementation(project(":feature:gallery"))
