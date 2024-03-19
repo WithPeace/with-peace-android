@@ -6,9 +6,9 @@ import androidx.paging.testing.asPagingSourceFactory
 import androidx.paging.testing.asSnapshot
 import app.cash.turbine.test
 import com.google.common.truth.Truth.assertThat
-import com.withpeace.withpeace.core.domain.model.ImageFolder
-import com.withpeace.withpeace.core.domain.model.ImagePagingInfo
-import com.withpeace.withpeace.core.domain.model.LimitedImages
+import com.withpeace.withpeace.core.domain.model.image.ImageFolder
+import com.withpeace.withpeace.core.domain.model.image.ImagePagingInfo
+import com.withpeace.withpeace.core.domain.model.image.LimitedImages
 import com.withpeace.withpeace.core.domain.usecase.GetAlbumImagesUseCase
 import com.withpeace.withpeace.core.domain.usecase.GetAllFoldersUseCase
 import com.withpeace.withpeace.core.testing.MainDispatcherRule

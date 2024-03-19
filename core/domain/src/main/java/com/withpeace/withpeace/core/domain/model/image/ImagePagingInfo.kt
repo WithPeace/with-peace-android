@@ -1,4 +1,4 @@
-package com.withpeace.withpeace.core.domain.model
+package com.withpeace.withpeace.core.domain.model.image
 
 import androidx.paging.PagingConfig
 import androidx.paging.PagingSource

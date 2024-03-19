@@ -6,8 +6,8 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.Pager
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
-import com.withpeace.withpeace.core.domain.model.ImageFolder
-import com.withpeace.withpeace.core.domain.model.LimitedImages
+import com.withpeace.withpeace.core.domain.model.image.ImageFolder
+import com.withpeace.withpeace.core.domain.model.image.LimitedImages
 import com.withpeace.withpeace.core.domain.usecase.GetAlbumImagesUseCase
 import com.withpeace.withpeace.core.domain.usecase.GetAllFoldersUseCase
 import com.withpeace.withpeace.feature.gallery.navigation.GALLERY_ALREADY_IMAGE_COUNT_ARGUMENT

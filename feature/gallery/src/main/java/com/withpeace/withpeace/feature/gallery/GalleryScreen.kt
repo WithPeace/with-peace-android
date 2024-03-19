@@ -40,8 +40,8 @@ import com.withpeace.withpeace.core.designsystem.R
 import com.withpeace.withpeace.core.designsystem.theme.WithpeaceTheme
 import com.withpeace.withpeace.core.designsystem.ui.WithPeaceBackButtonTopAppBar
 import com.withpeace.withpeace.core.designsystem.ui.WithPeaceCompleteButton
-import com.withpeace.withpeace.core.domain.model.ImageFolder
-import com.withpeace.withpeace.core.domain.model.LimitedImages
+import com.withpeace.withpeace.core.domain.model.image.ImageFolder
+import com.withpeace.withpeace.core.domain.model.image.LimitedImages
 import com.withpeace.withpeace.feature.gallery.R.drawable
 import com.withpeace.withpeace.feature.gallery.R.string
 import kotlinx.coroutines.flow.collectLatest
