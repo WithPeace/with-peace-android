@@ -18,7 +18,7 @@ fun NavController.navigateToPostDetail(
     navOptions: NavOptions? = null,
 ) = navigate(route = "$POST_DETAIL_ROUTE/$postId", navOptions)
 
-fun NavGraphBuilder.postDetailNavGraph(
+fun NavGraphBuilder.postDetailGraph(
     onShowSnackBar: (String) -> Unit,
     onClickBackButton: () -> Unit,
 ) {

@@ -10,6 +10,7 @@ import com.withpeace.withpeace.feature.home.navigation.homeNavGraph
 import com.withpeace.withpeace.feature.login.navigation.LOGIN_ROUTE
 import com.withpeace.withpeace.feature.login.navigation.loginNavGraph
 import com.withpeace.withpeace.feature.mypage.navigation.myPageNavGraph
+import com.withpeace.withpeace.feature.postdetail.navigation.postDetailGraph
 import com.withpeace.withpeace.feature.postlist.navigation.postListGraph
 import com.withpeace.withpeace.feature.registerpost.navigation.IMAGE_LIST_ARGUMENT
 import com.withpeace.withpeace.feature.registerpost.navigation.registerPostNavGraph
@@ -55,6 +56,10 @@ fun WithpeaceNavHost(
         )
         homeNavGraph(onShowSnackBar)
         postListGraph(onShowSnackBar)
+        postDetailGraph(
+            onShowSnackBar = onShowSnackBar,
+            onClickBackButton = navController::popBackStack,
+        )
         myPageNavGraph(onShowSnackBar)
     }
 }
