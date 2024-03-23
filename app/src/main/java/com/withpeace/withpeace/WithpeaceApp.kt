@@ -1,10 +1,8 @@
 package com.withpeace.withpeace
 
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -46,7 +44,8 @@ fun WithpeaceApp(
                 }
             }
         },
-        modifier = Modifier.fillMaxSize().safeDrawingPadding(),
+        modifier = Modifier
+            .fillMaxSize(),
         snackbarHost = { SnackbarHost(snackBarHostState) },
     ) { innerPadding ->
         WithpeaceNavHost(

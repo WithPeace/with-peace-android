@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "com.withpeace.withpeace.feature.mypage"
+    namespace = "com.withpeace.withpeace.feature.profileeditor"
 }
 
 dependencies {

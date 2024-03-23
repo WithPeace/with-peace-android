@@ -1,21 +1,16 @@
 package com.withpeace.withpeace.navigation
 
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.rememberNavController
-import androidx.navigation.navOptions
-import com.withpeace.withpeace.feature.home.navigation.homeNavGraph
-import com.withpeace.withpeace.feature.mypage.navigation.myPageNavGraph
-import com.withpeace.withpeace.feature.post.navigation.postNavGraph
 import com.withpeace.withpeace.feature.gallery.navigation.galleryNavGraph
 import com.withpeace.withpeace.feature.gallery.navigation.navigateToGallery
+import com.withpeace.withpeace.feature.home.navigation.homeNavGraph
 import com.withpeace.withpeace.feature.login.navigation.LOGIN_ROUTE
 import com.withpeace.withpeace.feature.login.navigation.loginNavGraph
+import com.withpeace.withpeace.feature.mypage.navigation.myPageNavGraph
+import com.withpeace.withpeace.feature.post.navigation.postNavGraph
 import com.withpeace.withpeace.feature.registerpost.navigation.IMAGE_LIST_ARGUMENT
 import com.withpeace.withpeace.feature.registerpost.navigation.registerPostNavGraph
 
@@ -60,6 +55,11 @@ fun WithpeaceNavHost(
         )
         homeNavGraph(onShowSnackBar)
         postNavGraph(onShowSnackBar)
-        myPageNavGraph(onShowSnackBar)
+        myPageNavGraph(
+            onShowSnackBar = onShowSnackBar,
+            onEditProfile = {},
+            onLogoutClick = {},
+            onWithdrawClick = {},
+        )
     }
 }

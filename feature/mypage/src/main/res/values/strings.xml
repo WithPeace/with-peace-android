@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="my_page">마이페이지</string>
+    <string name="edit_profile">프로필 수정</string>
+    <string name="account">계정</string>
+    <string name="connected_account">연결된 계정</string>
+    <string name="etc">기타</string>
+    <string name="logout">로그아웃</string>
+    <string name="withdraw">탈퇴하기</string>
+</resources>
