@@ -3,7 +3,6 @@ package com.withpeace.withpeace
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -33,22 +32,23 @@ fun WithpeaceApp(
 
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
+    val parentDestination = currentDestination?.parent
 
     Scaffold(
         bottomBar = {
-            currentDestination?.let {
-                if (BottomTab.contains(it.route ?: "")) {
-                    MainBottomBar(
-                        modifier = Modifier.height(56.dp),
-                        currentDestination = currentDestination ?: return@Scaffold,
-                        navController = navController,
-                    )
-                }
+            if (
+                BottomTab.contains(parentDestination?.route ?: currentDestination?.route ?: "")
+            ) {
+                MainBottomBar(
+                    modifier = Modifier.height(56.dp),
+                    currentDestination = if (parentDestination?.route == null) {
+                        currentDestination ?: return@Scaffold
+                    } else parentDestination,
+                    navController = navController,
+                )
             }
         },
-        modifier = Modifier
-            .fillMaxSize()
-            .safeDrawingPadding(),
+        modifier = Modifier.fillMaxSize(),
         snackbarHost = { SnackbarHost(snackBarHostState) },
         containerColor = WithpeaceTheme.colors.SystemWhite,
     ) { innerPadding ->

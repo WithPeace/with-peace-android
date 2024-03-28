@@ -1,4 +1,4 @@
-package com.withpeace.withpeace.core.domain.model
+package com.withpeace.withpeace.core.domain.model.image
 
 data class LimitedImages(
     val urls: List<String>,

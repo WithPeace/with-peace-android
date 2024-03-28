@@ -63,7 +63,7 @@ import com.withpeace.withpeace.core.designsystem.theme.WithpeaceTheme
 import com.withpeace.withpeace.core.designsystem.ui.KeyboardAware
 import com.withpeace.withpeace.core.designsystem.ui.WithPeaceBackButtonTopAppBar
 import com.withpeace.withpeace.core.designsystem.ui.WithPeaceCompleteButton
-import com.withpeace.withpeace.core.domain.model.LimitedImages
+import com.withpeace.withpeace.core.domain.model.image.LimitedImages
 import com.withpeace.withpeace.core.domain.model.WithPeaceError
 import com.withpeace.withpeace.core.domain.model.post.PostTopic
 import com.withpeace.withpeace.core.domain.model.post.RegisterPost

@@ -1,6 +1,6 @@
 package com.withpeace.withpeace.core.domain.usecase
 
-import com.withpeace.withpeace.core.domain.model.ImagePagingInfo
+import com.withpeace.withpeace.core.domain.model.image.ImagePagingInfo
 import com.withpeace.withpeace.core.domain.paging.ImagePagingSource
 import com.withpeace.withpeace.core.domain.repository.ImageRepository
 import javax.inject.Inject

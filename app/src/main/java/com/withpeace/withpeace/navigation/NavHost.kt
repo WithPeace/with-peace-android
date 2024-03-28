@@ -4,12 +4,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
+import androidx.navigation.navigation
 import com.withpeace.withpeace.feature.gallery.navigation.galleryNavGraph
 import com.withpeace.withpeace.feature.gallery.navigation.navigateToGallery
 import com.withpeace.withpeace.feature.home.navigation.homeNavGraph
 import com.withpeace.withpeace.feature.login.navigation.LOGIN_ROUTE
 import com.withpeace.withpeace.feature.login.navigation.loginNavGraph
 import com.withpeace.withpeace.feature.mypage.navigation.myPageNavGraph
+import com.withpeace.withpeace.feature.postdetail.navigation.navigateToPostDetail
+import com.withpeace.withpeace.feature.postdetail.navigation.postDetailGraph
+import com.withpeace.withpeace.feature.postlist.navigation.POST_LIST_ROUTE
 import com.withpeace.withpeace.feature.postlist.navigation.postListGraph
 import com.withpeace.withpeace.feature.registerpost.navigation.IMAGE_LIST_ARGUMENT
 import com.withpeace.withpeace.feature.registerpost.navigation.registerPostNavGraph
@@ -54,7 +58,18 @@ fun WithpeaceNavHost(
             onShowSnackBar = onShowSnackBar,
         )
         homeNavGraph(onShowSnackBar)
-        postListGraph(onShowSnackBar)
+        navigation(startDestination = POST_LIST_ROUTE, POST_NESTED_ROUTE) {
+            postDetailGraph(
+                onShowSnackBar = onShowSnackBar,
+                onClickBackButton = navController::popBackStack,
+            )
+            postListGraph(
+                onShowSnackBar = onShowSnackBar,
+                navigateToPostDetail = navController::navigateToPostDetail,
+            )
+        }
         myPageNavGraph(onShowSnackBar)
     }
 }
+
+const val POST_NESTED_ROUTE = "post_nested_route"

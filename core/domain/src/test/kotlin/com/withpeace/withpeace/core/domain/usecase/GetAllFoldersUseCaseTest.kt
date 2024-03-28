@@ -1,7 +1,7 @@
 package com.withpeace.withpeace.core.domain.usecase
 
 import com.google.common.truth.Truth.assertThat
-import com.withpeace.withpeace.core.domain.model.ImageFolder
+import com.withpeace.withpeace.core.domain.model.image.ImageFolder
 import com.withpeace.withpeace.core.domain.repository.ImageRepository
 import io.mockk.coEvery
 import io.mockk.mockk

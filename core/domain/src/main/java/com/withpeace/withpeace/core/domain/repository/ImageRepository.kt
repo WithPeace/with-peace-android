@@ -1,6 +1,6 @@
 package com.withpeace.withpeace.core.domain.repository
 
-import com.withpeace.withpeace.core.domain.model.ImageFolder
+import com.withpeace.withpeace.core.domain.model.image.ImageFolder
 
 interface ImageRepository {
 

@@ -2,7 +2,8 @@ package com.withpeace.withpeace.core.domain.model.date;
 
 import java.time.LocalDateTime
 
-data class Date(
+@JvmInline
+value class Date(
     val date: LocalDateTime,
 ) {
     val durationFromNow: DurationFromNow

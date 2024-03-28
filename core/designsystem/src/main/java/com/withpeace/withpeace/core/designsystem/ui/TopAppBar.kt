@@ -2,6 +2,7 @@ package com.withpeace.withpeace.core.designsystem.ui
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -23,6 +24,7 @@ fun WithPeaceBackButtonTopAppBar(
     onClickBackButton: () -> Unit,
     title: @Composable () -> Unit,
     actions: @Composable (RowScope.() -> Unit) = {},
+    windowInsets: WindowInsets = WindowInsets(0,0,0,0)
 ) {
     TopAppBar(
         title = title,
@@ -39,6 +41,7 @@ fun WithPeaceBackButtonTopAppBar(
                 contentDescription = "BackArrowLeft",
             )
         },
+        windowInsets = windowInsets,
         actions = actions,
         colors = TopAppBarDefaults.topAppBarColors(containerColor = WithpeaceTheme.colors.SystemWhite),
     )

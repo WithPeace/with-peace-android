@@ -1,5 +1,6 @@
 package com.withpeace.withpeace.feature.postlist
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -40,6 +41,7 @@ import java.time.LocalDateTime
 fun PostListRoute(
     viewModel: PostListViewModel = hiltViewModel(),
     onShowSnackBar: (String) -> Unit,
+    navigateToDetail: (postId: Long) -> Unit,
 ) {
     val postList = viewModel.postList.collectAsStateWithLifecycle().value
     val currentTopic = viewModel.currentTopic.collectAsStateWithLifecycle().value
@@ -47,6 +49,7 @@ fun PostListRoute(
         currentTopic = currentTopic,
         postList,
         onTopicChanged = viewModel::onTopicChanged,
+        navigateToDetail = navigateToDetail,
     )
 }
 
@@ -55,6 +58,7 @@ fun PostListScreen(
     currentTopic: PostTopic,
     postList: List<Post>,
     onTopicChanged: (PostTopic) -> Unit = {},
+    navigateToDetail: (postId: Long) -> Unit = {},
 ) {
     val context = LocalContext.current
     Column(modifier = Modifier.fillMaxSize()) {
@@ -73,7 +77,9 @@ fun PostListScreen(
                 key = {it.postId}
             ) { post ->
                 WithpeaceCard(
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable { navigateToDetail(post.postId) },
                 ) {
                     ConstraintLayout(
                         modifier = Modifier

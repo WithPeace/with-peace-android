@@ -35,7 +35,7 @@ class MainActivity : ComponentActivity() {
             repeatOnLifecycle(Lifecycle.State.STARTED){
                 viewModel.isLogin.collect { isLogin ->
                     when (isLogin) {
-                        true -> composeStart(HOME_ROUTE)
+                        true -> composeStart(REGISTER_POST_ROUTE)
                         false -> composeStart(LOGIN_ROUTE)
                         else -> {} // StateFlow의 상태를 Null로 설정함으로서, 로그인 상태가 업데이트 된 이후로 화면을 보여주도록 하기위함
                     }

@@ -2,7 +2,7 @@ package com.withpeace.withpeace.feature.registerpost
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.withpeace.withpeace.core.domain.model.LimitedImages
+import com.withpeace.withpeace.core.domain.model.image.LimitedImages
 import com.withpeace.withpeace.core.domain.model.post.PostTopic
 import com.withpeace.withpeace.core.domain.model.post.RegisterPost
 import com.withpeace.withpeace.core.domain.usecase.RegisterPostUseCase
